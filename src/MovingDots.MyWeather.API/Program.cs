@@ -7,6 +7,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.Configure<WeatherApiSettings>(builder.Configuration.GetSection(nameof(WeatherApiSettings)));
+builder.Services.AddTransient<IWeatherService, WeatherService>();
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

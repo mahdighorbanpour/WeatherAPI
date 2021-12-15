@@ -10,11 +10,14 @@ namespace MovingDots.MyWeather.API.Controllers
         {
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
     };
-
+        private readonly IWeatherService _weatherService;
         private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(
+            IWeatherService weatherService,
+            ILogger<WeatherForecastController> logger)
         {
+            _weatherService = weatherService;
             _logger = logger;
         }
 
