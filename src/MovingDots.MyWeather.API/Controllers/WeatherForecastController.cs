@@ -17,10 +17,10 @@ namespace MovingDots.MyWeather.API.Controllers
             _logger = logger;
         }
 
-        [HttpGet(Name = "GetWeatherForecast")]
-        public Task<WeatherInfo> Get(string city)
+        [HttpGet("{city}/{unit}", Name = "GetWeatherForecast")]
+        public Task<WeatherInfo> Get([FromRoute] string city, [FromRoute] Unit unit = Unit.C)
         {
-            return _weatherService.GetWeather(city, Unit.C);
+            return _weatherService.GetWeather(city, unit);
         }
     }
 }

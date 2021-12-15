@@ -9,6 +9,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.Configure<WeatherApiSettings>(builder.Configuration.GetSection(nameof(WeatherApiSettings)));
 builder.Services.AddTransient<IWeatherService, WeatherService>();
+builder.Services.AddSingleton<ITemperaturConvertor, TemperaturConvertor>();
 
 
 var app = builder.Build();
